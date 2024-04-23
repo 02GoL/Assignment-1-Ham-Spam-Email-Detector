@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Spam Detector</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <meta name="theme-color" content="#fafafa">
+  </head>
+  <body>
+    <a id="topOfPage"></a>
+  <!-- Add your site or application content here -->
+    <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+    <div class="sidebar">
+      <div class="sideBarOptions">
+        <p><a href="#spamAnalysis">Filter Results</a></p>
+        <p><a href="#aboutSpamFilter">Naives Bayers Spam Filtering</a></p>
+        <p><a href="#about">About</a></p>
+        <p><a href="#references">References</a></p>
+        <p><a href="#topOfPage" id="top">Top of Page ⇧</a></p>
+      </div>
+      <span onclick="openMenu()"></span>
+    </div>
+
+    <header>
+      <h1>Spam Detector Dashboard</h1>
+    </header>
+
+    <section>
+      <div id="spamAnalysis">
+        <h2 id="filterResults">Spam Analysis Dashboard</h2>
+        <div class="data">
+          <div class="dataTable">
+            <table>
+              <thead>
+                <tr>
+                  <th>File</th>
+                  <th>Spam Probability(%)</th>
+                  <th>Class Guess</th>
+                  <th>Class</th>
+                </tr>
+              </thead>
+              <tbody id="body">
+              </tbody>
+            </table>
+          </div>
+          <div class="modelPerformance">
+            <h4>Performance of the Model</h4>
+            <p id="accuracy">Accuracy:</p>
+            <p id="precision">Precision:</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="aboutSpamFilter">
+        <h2><a href="https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering#:~:text=Naive%20Bayes%20spam%20filtering%20is,with%20roots%20in%20the%201990s." target="_blank">Naives Bayers Spam Filter</a></h2>
+        <p>From the wiki page</p>
+        <p>
+          Naive Bayes classifiers are a popular statistical technique of e-mail filtering.
+          They typically use bag-of-words features to identify email spam, an approach
+          commonly used in text classification.
+
+          Naive Bayes classifiers work by correlating the use of tokens (typically words,
+          or sometimes other things), with spam and non-spam e-mails and then using Bayes'
+          theorem to calculate a probability that an email is or is not spam.
+
+          Naive Bayes spam filtering is a baseline technique for dealing with spam that
+          can tailor itself to the email needs of individual users and give low false
+          positive spam detection rates that are generally acceptable to users. It is one
+          of the oldest ways of doing spam filtering, with roots in the 1990s.
+        </p>
+        <p>
+          Particular words have particular probabilities of occurring in spam email and
+          in legitimate email. For instance, most email users will frequently encounter
+          the word "Viagra" in spam email, but will seldom see it in other email. The
+          filter doesn't know these probabilities in advance, and must first be trained
+          so it can build them up. To train the filter, the user must manually indicate
+          whether a new email is spam or not. For all words in each training email, the
+          filter will adjust the probabilities that each word will appear in spam or
+          legitimate email in its database. For instance, Bayesian spam filters will
+          typically have learned a very high spam probability for the words "Viagra"
+          and "refinance", but a very low spam probability for words seen only in
+          legitimate email, such as the names of friends and family members.
+
+          After training, the word probabilities (also known as likelihood functions)
+          are used to compute the probability that an email with a particular set of
+          words in it belongs to either category. Each word in the email contributes to
+          the email's spam probability, or only the most interesting words. This
+          contribution is called the posterior probability and is computed using Bayes'
+          theorem. Then, the email's spam probability is computed over all words in the
+          email, and if the total exceeds a certain threshold (say 95%), the filter will
+          mark the email as a spam.
+
+          As in any other spam filtering technique, email marked as spam can then be
+          automatically moved to a "Junk" email folder, or even deleted outright. Some
+          software implement quarantine mechanisms that define a time frame during
+          which the user is allowed to review the software's decision.
+
+          The initial training can usually be refined when wrong judgements from the
+          software are identified (false positives or false negatives). That allows
+          the software to dynamically adapt to the ever-evolving nature of spam.
+
+          Some spam filters combine the results of both Bayesian spam filtering and
+          other heuristics (pre-defined rules about the contents, looking at the
+          message's envelope, etc.), resulting in even higher filtering accuracy,
+          sometimes at the cost of adaptiveness.
+        </p>
+      </div>
+
+      <div id="about">
+        <h2>About Us</h2>
+        <p>
+          This was a project for CSCI 2020U Software Systems Development & Integration
+          where we explored how we can filter out spam email from actual emails via
+          Naives Bayer's Spam Filtering.
+        </p>
+        <p>This website was created by:</p>
+        <ul>
+          <li>Beatriz Provido</li>
+          <li>Charis Chan</li>
+          <li>Gordon Law</li>
+          <li>Jerico Robles</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div id="references">
+        <h2>References</h2>
+        <p><a href="https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering#:~:text=Naive%20Bayes%20spam%20filtering%20is,with%20roots%20in%20the%201990s." target="_blank">Naives Bayers Spam Filtering</a></p>
+        <p><a href="https://en.wikipedia.org/wiki/Bag-of-words_model" target="_blank">Bag Of Words</a></p>
+      </div>
+    </footer>
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+      window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+      ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
+  </body>
+</html>
